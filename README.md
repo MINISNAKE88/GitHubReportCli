@@ -28,4 +28,4 @@ This optimizes performance down to a single, lightweight API call, demonstrating
 
 1. Clone the repository:
 ```bash
-   git clone [https://github.com/MINISNAKE88/GitHubReportCli.git](https://github.com/MINISNAKE88/GitHubReportCli.git)
+   git clone https://github.com/MINISNAKE88/GitHubReportCli.git

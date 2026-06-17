@@ -32,21 +32,21 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allows the menu to wrap on smaller screens */
-    gap: 15px;
+    gap: 20px;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* Slightly reduced to prevent breaking on medium screens */
     font-weight: 700;
     color: #38bdf8;
     letter-spacing: 1px;
+    white-space: nowrap; /* Prevents logo from breaking into multiple lines */
 }
 
 nav {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 nav a {
@@ -54,6 +54,7 @@ nav a {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
+    white-space: nowrap;
 }
 
 nav a:hover {
@@ -65,6 +66,7 @@ nav a:hover {
     color: #0f172a !important;
     padding: 8px 16px;
     border-radius: 6px;
+    display: inline-block;
 }
 
 .btn-nav:hover {
@@ -126,7 +128,6 @@ nav a:hover {
 }
 
 .card {
-    /* flex-grow | flex-shrink | flex-basis */
     flex: 1 1 calc(33.333% - 20px); 
     min-width: 280px;
     background-color: #1e293b;
@@ -159,14 +160,30 @@ footer {
    ========================================== */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column; /* Stack logo and navigation menu vertically */
+        flex-direction: column; /* Stack the logo and nav links vertically */
         text-align: center;
+        gap: 12px;
+    }
+
+    .logo {
+        white-space: normal; /* Allows logo text to wrap elegantly if screen is tiny */
+        font-size: 1.2rem;
     }
 
     nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
+        flex-direction: column; /* Stack navigation links on top of each other */
+        width: 100%;
+        gap: 12px;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+    }
+
+    .btn-nav {
+        display: inline-block;
+        width: auto; /* Keeps the button from taking 100% width unless desired */
     }
 
     .hero {
@@ -174,7 +191,7 @@ footer {
     }
 
     .hero h1 {
-        font-size: 2.2rem; /* Scale down hero title so it fits nicely */
+        font-size: 2.2rem;
     }
 
     .hero p {
@@ -182,6 +199,6 @@ footer {
     }
 
     .card {
-        flex: 1 1 100%; /* Make feature cards occupy full width on mobile screens */
+        flex: 1 1 100%;
     }
 }

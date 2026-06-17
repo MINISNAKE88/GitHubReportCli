@@ -8,9 +8,8 @@ namespace GitHubReportCli
 {
     class Program
     {
-        // NOTE: To avoid strict API rate limits, you can generate a Personal Access Token (Classic) 
-        // on GitHub with minimal permissions and paste it here. Leaving it empty works for public use but with limits.
-        private static readonly string GitHubToken = "";
+        // Fetches the GitHub Personal Access Token from environment variables to bypass public rate limits.
+        private static readonly string GitHubToken = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? "";
 
         static async Task Main(string[] args)
         {
@@ -88,7 +87,7 @@ namespace GitHubReportCli
                 .ToList();
 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("⭐ 1) TOP 5 MOST POPULAR REPOSITORIES:");
+            Console.WriteLine("1) TOP 5 MOST POPULAR REPOSITORIES:");
             Console.ResetColor();
 
             if (!topRepos.Any())
@@ -107,7 +106,7 @@ namespace GitHubReportCli
         private static void DisplayTopLanguages(IReadOnlyList<Repository> repos)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("📊 2) MOST USED LANGUAGES SUMMARY (Based on repo count):");
+            Console.WriteLine("2) MOST USED LANGUAGES SUMMARY (Based on repo count):");
             Console.ResetColor();
 
             // Group repositories by their primary language detected by GitHub
@@ -134,7 +133,7 @@ namespace GitHubReportCli
         private static async Task DisplayPendingReviewsCount(GitHubClient client, string username)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("🔍 3) PENDING PULL REQUEST REVIEWS:");
+            Console.WriteLine("3) PENDING PULL REQUEST REVIEWS:");
             Console.ResetColor();
 
             // FIX: Passing the search qualifiers directly into the constructor as a raw query string.
@@ -153,7 +152,7 @@ namespace GitHubReportCli
         private static void PrintError(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"❌ Error: {message}");
+            Console.WriteLine($"Error: {message}");
             Console.ResetColor();
         }
     }

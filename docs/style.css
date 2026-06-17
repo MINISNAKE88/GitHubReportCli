@@ -32,6 +32,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Allows the menu to wrap on smaller screens */
+    gap: 15px;
 }
 
 .logo {
@@ -41,10 +43,15 @@ header {
     letter-spacing: 1px;
 }
 
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 nav a {
     color: #cbd5e1;
     text-decoration: none;
-    margin-left: 20px;
     font-weight: 500;
     transition: color 0.3s;
 }
@@ -75,6 +82,7 @@ nav a:hover {
     font-size: 3rem;
     margin-bottom: 20px;
     color: #ffffff;
+    line-height: 1.2;
 }
 
 .hero p {
@@ -118,7 +126,8 @@ nav a:hover {
 }
 
 .card {
-    flex: 1;
+    /* flex-grow | flex-shrink | flex-basis */
+    flex: 1 1 calc(33.333% - 20px); 
     min-width: 280px;
     background-color: #1e293b;
     padding: 30px;
@@ -143,4 +152,36 @@ footer {
     border-top: 1px solid #1e293b;
     color: #64748b;
     font-size: 0.9rem;
+}
+
+/* ==========================================
+   MEDIA QUERY FOR MOBILE DEVICES (Screens < 768px)
+   ========================================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack logo and navigation menu vertically */
+        text-align: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem; /* Scale down hero title so it fits nicely */
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .card {
+        flex: 1 1 100%; /* Make feature cards occupy full width on mobile screens */
+    }
 }

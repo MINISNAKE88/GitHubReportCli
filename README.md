@@ -7,16 +7,16 @@ For a general overview and use cases, visit the [GitHub Pages site](https://mini
 ## Features
 
 * **Top 5 Popular Repositories:** Lists public repositories sorted by star count and includes fork metrics.
-* **Language Breakdown:** Groups repositories by language to show the user's five most frequently used languages.
+* **Language Breakdown:** Groups repositories to show the user's five most frequently used languages.
 * **Review Counter:** Counts open pull requests where the user has been requested as a reviewer.
 
 ## Review Counter Implementation
 
-The review counter uses GitHub's search API with the following query:
+To determine the number of pending reviews, the tool uses GitHub's search API with the following query:
 
 `type:pr state:open review-requested:username`
 
-This approach avoids downloading repository data and additional client-side filtering, reducing the operation to a single API request.
+This avoids downloading repository data and filtering pull requests on the client side, allowing the count to be obtained with a single API request.
 
 ## How to Run Locally
 
@@ -26,6 +26,6 @@ This approach avoids downloading repository data and additional client-side filt
 
 ### Steps
 
-```bash
+```bash id="8hcyw3"
 git clone https://github.com/MINISNAKE88/GitHubReportCli.git
 ```

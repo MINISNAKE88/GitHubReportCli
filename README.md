@@ -1,6 +1,8 @@
 # GitHub Quick Reporter CLI
 
-A command-line interface tool written in C# using .NET 8 and the official Octokit library to generate instant GitHub user profile metrics.
+A command-line interface tool written in C# using .NET 8 and the official Octokit library to generate instant GitHub user profile metrics. 
+
+For a general overview and use cases check out my  [GitHub Pages site](https://minisnake88.github.io/GitHubReportCli/).
 
 ## Features
 
@@ -25,5 +27,5 @@ This optimizes performance down to a single, lightweight API call, demonstrating
 ### Steps
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/MINISNAKE88/GitHubReportCli.git
+```bash
+   git clone [https://github.com/MINISNAKE88/GitHubReportCli.git](https://github.com/MINISNAKE88/GitHubReportCli.git)
